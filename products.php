@@ -10,20 +10,20 @@ if ( isset($_POST['submit_checkbox'] )) {
     $query = "SELECT * FROM product  ";
 
   
-    if (isset($_POST["quantite_min"]) ) {
+    if (isset($_POST["qte_min"]) ) {
         
-        $query .= "WHERE quantite_min >= quantite_stock ";
+        $query .= "WHERE qte_min >= qte_stock ";
 
         
     }
 
     if ($_POST["quantity"] === "1") {
         // Sort by quantity (assuming 'quantity' is the column name)
-        $query .= "ORDER BY quantite_min DESC";
+        $query .= "ORDER BY qte_min DESC";
        
 
     }else if ($_POST["quantity"] === "2") {
-        $query .= "ORDER BY quantite_min ASC";
+        $query .= "ORDER BY qte_min ASC";
     } else if ($_POST["quantity"] === "0") {
         $query ;
     } 
@@ -48,16 +48,16 @@ $result_all = $stmt->fetchAll();
         $clean_categories = array_map('intval', $categories);
         $category_condition = implode(', ', $clean_categories);
 
-        $query_category = "SELECT * FROM product WHERE category_id IN ($category_condition)";
+        $query_category = "SELECT * FROM product WHERE id IN ($category_condition)";
 
-        if (isset($_POST["quantite_min"])) {
-            $query_category .= " AND quantite_min >= quantite_stock";
+        if (isset($_POST["qte_min"])) {
+            $query_category .= " AND qte_min >= qte_stock";
         }
 
         if ($_POST["quantity"] === "1") {
-            $query_category .= " ORDER BY quantite_min DESC";
+            $query_category .= " ORDER BY qte_min DESC";
         } else if ($_POST["quantity"] === "2") {
-            $query_category .= " ORDER BY quantite_min ASC";
+            $query_category .= " ORDER BY qte_min ASC";
         }
         
       
@@ -186,7 +186,7 @@ if (isset($_SESSION['name'])) {
     <h5>Quantité min</h5>
     <ul  class="list-group">
     <li class="list-group-item">
-    <input  id="thirdCheckboxStretched2" class="form-check-input me-1"  type="checkbox" value="4" name="quantite_min" <?php if (isset($_POST["quantite_min"]) && $_POST["quantite_min"] === "4" ) echo 'checked'; ?> >
+    <input  id="thirdCheckboxStretched2" class="form-check-input me-1"  type="checkbox" value="4" name="qte_min" <?php if (isset($_POST["qte_min"]) && $_POST["qte_min"] === "4" ) echo 'checked'; ?> >
     <label class="form-check-label stretched-link" for="thirdCheckboxStretched2">Quantite min</label>
     </li>
     </ul>
@@ -229,19 +229,19 @@ if (isset($_SESSION['name'])) {
                     <div class="item">
                     <div class="row g-0  mb-4 position-relative" style="    border-bottom: 2px #857979 solid;border-top: 2px #857979 solid;border-radius: 20%;">
                         <div class="col-md-6 mb-md-0 p-md-4">
-                            <img src="<?php echo $row['image_url']  ?>" class="w-100" alt="...">
+                            <img src="<?php echo $row['image']  ?>" class="w-100" alt="...">
                         </div>
                         <div class="col-md-6 p-4 ps-md-0">
                             <h5 class="mb-4"><?php echo $row['libelle']  ?></h5>
-                            <h6 class="text-primary"><?php echo $row['prix_unitaire']  ?> MAD</h6>
-                            <h6 class="text-success">Produit en stock (<?php echo $row['quantite_stock']  ?>) </h6>
-                            <?php if ($row['quantite_min'] > $row['quantite_stock'] ) {  ?>
+                            <h6 class="text-primary"><?php echo $row['prix']  ?> MAD</h6>
+                            <h6 class="text-success">Produit en stock (<?php echo $row['qte_stock']  ?>) </h6>
+                            <?php if ($row['qte_min'] > $row['qte_stock'] ) {  ?>
                                
                            
-                            <h6 class="text-danger">Quantite min : <?php echo $row['quantite_min']  ?> </h6>
+                            <h6 class="text-danger">Quantite min : <?php echo $row['qte_min']  ?> </h6>
 
                             <?php }else {   ?>
-                                <h6 class="text-subtle">Quantite min : <?php echo $row['quantite_min']  ?> </h6>
+                                <h6 class="text-subtle">Quantite min : <?php echo $row['qte_min']  ?> </h6>
 
                                 <?php  } ?>
 
@@ -262,7 +262,6 @@ if (isset($_SESSION['name'])) {
                   
              
             </div>  
-                <div class="item5">Footer</div>
                 </div>
                         
                         </div>
