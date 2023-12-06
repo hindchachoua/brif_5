@@ -1,20 +1,20 @@
-<!-- ***** Header Area Start ***** -->
+<!-- --- Header Area Start --- -->
 
-<header class="header-area header-sticky">
+<header style="background-color: #E3E9EB;" class="header-area header-sticky">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
+                    <!-- --- Logo Start --- -->
                     <a href="index.html" class="logo">
                         <img src="img/logo.png">
                     </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
+                    <!-- --- Logo End --- -->
+                    <!-- --- Menu Start --- -->
                     <ul class="nav">
-                        <li class="scroll-to-section"><a href="index.php" <?php if ($isActive === "index.php") echo ' class="active"'; ?>>Home</a></li>
+                        <li><a href="index.php" <?php if ($isActive === "index.php") echo ' class="active"'; ?>>Home</a></li>
                                                                         
-                        <li class="scroll-to-section"><a href="products.php" <?php if ($isActive === "products.php") echo ' class="active"'; ?>>Products</a></li>
+                        <li><a href="products.php" <?php if ($isActive === "products.php") echo ' class="active"'; ?>>Products</a></li>
 
                         <?php  
                         if (isset($_SESSION['name'])) { ?>
@@ -26,10 +26,10 @@
                     <a class='menu-trigger'>
                         <span>Menu</span>
                     </a>
-                    <!-- ***** Menu End ***** -->
+                    <!-- --- Menu End --- -->
                 </nav>
             </div>
         </div>
     </div>
 </header>
-<!-- ***** Header Area End ***** -->
+<!-- --- Header Area End --- -->

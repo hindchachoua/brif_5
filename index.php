@@ -1,4 +1,8 @@
 
+<!--fetch To return a single row from a result set as an array or object -->
+<!-- fetchall To return all of the rows from the result set as an array of arrays or objects -->
+<!--fetchaccos Returns an array indexed by column name as returned in your result set. -->
+
 <?php include 'layout/coon.php';
 $isActive = 'index.php';
 
@@ -111,7 +115,7 @@ $isActive = 'index.php';
                 
 
           <div class="col-lg-6  align-items-center justify-content-center">
-          <h1 class="user-select-all">welcome back <?php echo $_SESSION['name'] ?></h1>
+          <h1 class="user-select-all" style="font-size: 60px ;margin-top: 30%;">welcome back in Our Site <span style="color: #064F72;">`ElectroNacer`</span></h1>
  
           </div>
                   

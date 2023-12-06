@@ -18,11 +18,12 @@ if ( isset($_POST['submit_checkbox'] )) {
     }
 
     if ($_POST["quantity"] === "1") {
-        // Sort by quantity (assuming 'quantity' is the column name)
+        // Orders the query by 'qte_min' column in descending order.
         $query .= "ORDER BY qte_min DESC";
        
 
     }else if ($_POST["quantity"] === "2") {
+        // Orders the query by 'qte_min' column in ascending order.
         $query .= "ORDER BY qte_min ASC";
     } else if ($_POST["quantity"] === "0") {
         $query ;
@@ -104,7 +105,7 @@ $result_all = $stmt->fetchAll();
 
 }
 </style>
-    <body>
+    <body style="background-color: #E3E9EB; margin-top: -60px;">
 
   
     <!-- ***** Header Area Start ***** -->
@@ -121,13 +122,7 @@ $result_all = $stmt->fetchAll();
     ?>
     <!-- ***** Header Area End ***** -->
    
-
     
-
-    
-  
-
-  
     <?php   
 
 
@@ -149,7 +144,7 @@ if (isset($_SESSION['name'])) {
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="section-heading">
-                        <h2>Our Latest Products</h2>
+                        <h2 style="color: blueviolet; margin-left: 15%" >Latest Products</h2>
                     </div>
                 </div>
             </div>
@@ -165,7 +160,7 @@ if (isset($_SESSION['name'])) {
     
   <div class="col-lg-12">
               
-     <h5>Composants</h5>
+     <h5 style="color: #064F72;">Composants</h5>
     <!-- Checkbox inputs -->
     <ul class="list-group">
     <li class="list-group-item">
@@ -174,25 +169,25 @@ if (isset($_SESSION['name'])) {
     </li> 
     <li class="list-group-item">
     <input id="secondCheckboxStretched" class="form-check-input me-1"  type="checkbox" value="3" name="categories[]" <?php if (isset($categories) && in_array('3', $categories)) echo 'checked'; ?>>
-    <label class="form-check-label stretched-link" for="secondCheckboxStretched">Cartes graphiques</label>
+    <label class="form-check-label stretched-link" for="secondCheckboxStretched"> Boitiers PC</label>
     </li>
     
     
     <li class="list-group-item">
     <input  id="thirdCheckboxStretched" class="form-check-input me-1"  type="checkbox" value="1" name="categories[]" <?php if (isset($categories) && in_array('1', $categories)) echo 'checked'; ?>>
-    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Boitiers PC</label>
+    <label class="form-check-label stretched-link" for="thirdCheckboxStretched">Cartes graphiques</label>
     </li>
    <br>
-    <h5>Quantité min</h5>
+    <h5 style="color: #064F72;">Quantité min</h5>
     <ul  class="list-group">
     <li class="list-group-item">
     <input  id="thirdCheckboxStretched2" class="form-check-input me-1"  type="checkbox" value="4" name="qte_min" <?php if (isset($_POST["qte_min"]) && $_POST["qte_min"] === "4" ) echo 'checked'; ?> >
-    <label class="form-check-label stretched-link" for="thirdCheckboxStretched2">Quantite min</label>
+    <label class="form-check-label stretched-link" for="thirdCheckboxStretched2" >Quantite min</label>
     </li>
     </ul>
     </ul>
     <br>
-     <h5>Quantité</h5>
+     <h5 style="color: #064F72;">Quantité</h5>
     <!-- Checkbox inputs -->
     <ul class="list-group">
     <li class="list-group-item">
@@ -214,7 +209,7 @@ if (isset($_SESSION['name'])) {
     
   
     <br>
-    <button type="submit" name="submit_checkbox" class="btn btn-info btn-lg">
+    <button type="submit" name="submit_checkbox" class="btn btn-info btn-lg" style="background-color: #064F72;">
           <span class="glyphicon glyphicon-filter"><i class="fas fa-filter"></i></span> Filter </button>
 
 </form>
